@@ -13,16 +13,15 @@ function App() {
 	return (
 		<>
 			<Router>
-				<Navbar>
-					<Routes>
-						<Route path='/' element={<Explore />} />
-						<Route path='/offers' element={<Offers />} />
-						<Route path='/profile' element={<Profile />} />
-						<Route path='/login' element={<Login />} />
-						<Route path='/create-account' element={<CreateAccount />} />
-						<Route path='/forgot-password' element={<ForgotPassword />} />
-					</Routes>
-				</Navbar>
+				<Routes>
+					<Route path='/' element={<Explore />} />
+					<Route path='/offers' element={<Offers />} />
+					<Route path='/profile' element={<Profile />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/create-account' element={<CreateAccount />} />
+					<Route path='/forgot-password' element={<ForgotPassword />} />
+				</Routes>
+				<Navbar />
 			</Router>
 		</>
 	)
