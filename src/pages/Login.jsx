@@ -6,6 +6,7 @@ import {
 	signInWithEmailAndPassword,
 	updateProfile,
 } from 'firebase/auth'
+import OAuth from '../components/utils/OAuth'
 
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
@@ -93,6 +94,8 @@ function Login() {
 						</button>
 					</div>
 				</form>
+
+				<OAuth />
 
 				<Link to='/create-account' className='registerLink'>
 					Sign up instead

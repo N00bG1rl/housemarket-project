@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth'
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase.config'
+import OAuth from '../components/utils/OAuth'
 
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
@@ -43,7 +44,7 @@ function CreateAccount() {
 			)
 
 			const user = userCredential.user
-			console.log(user)
+			//console.log(user)
 
 			updateProfile(auth.currentUser, {
 				displayName: name,
@@ -118,6 +119,8 @@ function CreateAccount() {
 						</button>
 					</div>
 				</form>
+
+				<OAuth />
 
 				<Link to='/login' className='registerLink'>
 					Login instead
