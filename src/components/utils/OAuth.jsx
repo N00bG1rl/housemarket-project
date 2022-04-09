@@ -34,7 +34,7 @@ function OAuth() {
 			}
 			navigate('/profile')
 		} catch (error) {
-			console.log(error)
+			//console.log(error)
 			toast.error('Could not authorize with Google')
 		}
 	}
