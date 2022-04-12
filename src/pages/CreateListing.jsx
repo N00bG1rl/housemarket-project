@@ -55,7 +55,6 @@ function CreateListing() {
 
 	const auth = getAuth()
 	const navigate = useNavigate()
-	//const isMounted = useRef(true)
 
 	useEffect(() => {
 		const onUnsubscribe = onAuthStateChanged(auth, user => {
@@ -177,6 +176,7 @@ function CreateListing() {
 						}
 					},
 					error => {
+						console.log('here')
 						reject(error)
 					},
 					() => {
