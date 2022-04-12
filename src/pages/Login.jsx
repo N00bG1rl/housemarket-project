@@ -1,11 +1,7 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
-import {
-	getAuth,
-	signInWithEmailAndPassword,
-	updateProfile,
-} from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import OAuth from '../utils/OAuth'
 
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'

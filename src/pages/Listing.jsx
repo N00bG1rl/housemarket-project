@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-////import { Helmet } from 'react-helmet'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'

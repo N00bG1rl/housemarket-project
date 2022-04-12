@@ -110,7 +110,7 @@ function Category() {
 
 			{isLoading ? (
 				<Spinner />
-			) : listings && listings.length > 0 ? (
+			) : listings && listings.length ? (
 				<>
 					<main>
 						<ul className='categoryListings'>

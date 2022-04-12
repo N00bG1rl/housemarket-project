@@ -11,7 +11,7 @@ import { db } from '../firebase.config'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid'
-import Spinner from '../components/Spinner'
+import Spinner from '../components/layout/Spinner'
 
 const initialData = {
 	type: 'rent',
@@ -30,7 +30,6 @@ const initialData = {
 }
 
 function EditListing() {
-	// eslint-disable-next-line
 	const [geolocationEnabled, setGeolocationEnabled] = useState(true)
 	const [loading, setLoading] = useState(false)
 	const [listing, setListing] = useState(false)
@@ -187,7 +186,7 @@ function EditListing() {
 			})
 		}
 
-		const imgUrls = await Promise.all(
+		const imageUrls = await Promise.all(
 			[...images].map(image => storeImage(image))
 		).catch(() => {
 			setLoading(false)
@@ -197,7 +196,7 @@ function EditListing() {
 
 		const formDataCopy = {
 			...formData,
-			imgUrls,
+			imageUrls,
 			geolocation,
 			timestamp: serverTimestamp(),
 		}
