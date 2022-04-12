@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom'
+import AddCommasToPrice from '../../utils/AddCommasToPrice'
 import { ReactComponent as DeleteIcon } from '../../assets/svg/deleteIcon.svg'
 import bedIcon from '../../assets/svg/bedIcon.svg'
 import bathtubIcon from '../../assets/svg/bathtubIcon.svg'
-
-function AddCommaToPrice(price) {
-	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-}
 
 function ListingItem({ listing, id, onDelete }) {
 	return (
@@ -24,10 +21,9 @@ function ListingItem({ listing, id, onDelete }) {
 					<p className='categoryListingName'>{listing.name}</p>
 
 					<p className='categoryListingPrice'>
-						$
 						{listing.offer
-							? AddCommaToPrice(listing.discountedPrice)
-							: AddCommaToPrice(listing.regularPrice)}
+							? AddCommasToPrice(listing.discountedPrice)
+							: AddCommasToPrice(listing.regularPrice)}
 						{listing.type === 'rent' && ' / Month'}
 					</p>
 

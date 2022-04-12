@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Navbar from './components/layout/Navbar'
-import PrivateRoute from './components/utils/PrivateRoute'
+import PrivateRoute from './utils/PrivateRoute'
 import Explore from './pages/Explore'
 import Category from './pages/Category'
 import Offers from './pages/Offers'
