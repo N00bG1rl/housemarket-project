@@ -4,6 +4,8 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import AddCommasToPrice from '../utils/AddCommasToPrice'
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -16,10 +18,6 @@ import { db } from '../firebase.config'
 import Spinner from '../components/layout/Spinner'
 import shareIcon from '../assets/svg/shareIcon.svg'
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
-
-function AddCommaToPrice(price) {
-	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-}
 
 function Listing() {
 	const [listing, setListing] = useState(null)
@@ -83,10 +81,11 @@ function Listing() {
 
 			<div className='listingDetails'>
 				<p className='listingName'>
-					{listing.name} - $
+					{listing.name}
+					{' - '}
 					{listing.offer
-						? AddCommaToPrice(listing.discountedPrice)
-						: AddCommaToPrice(listing.regularPrice)}
+						? AddCommasToPrice(listing.discountedPrice)
+						: AddCommasToPrice(listing.regularPrice)}
 				</p>
 				<p className='listingLocation'>{listing.location}</p>
 				<p className='listingType'>
@@ -94,7 +93,7 @@ function Listing() {
 				</p>
 				{listing.offer && (
 					<p className='discountedPrice'>
-						${listing.regularPrice - listing.discountedPrice} discount
+						{listing.regularPrice - listing.discountedPrice} discount
 					</p>
 				)}
 				<ul className='listingDetailsList'>

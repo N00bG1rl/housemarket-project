@@ -29,6 +29,9 @@ const initialData = {
 	longitude: 0,
 }
 
+const URL = process.env.REACT_APP_BASE_URL
+const KEY = process.env.REACT_APP_GEOCODE_API_KEY
+
 function EditListing() {
 	const [geolocationEnabled, setGeolocationEnabled] = useState(true)
 	const [loading, setLoading] = useState(false)
@@ -121,9 +124,7 @@ function EditListing() {
 		let location
 
 		if (geolocationEnabled) {
-			const response = await fetch(
-				`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
-			)
+			const response = await fetch(`${URL}/json?address=${address}&key=${KEY}`)
 
 			const data = await response.json()
 
