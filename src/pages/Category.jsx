@@ -8,15 +8,16 @@ import {
 	orderBy,
 	limit,
 	startAfter,
-	Timestamp,
 } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import Spinner from '../components/layout/Spinner'
-import { toast, Toast } from 'react-toastify'
+import { toast } from 'react-toastify'
+
+import ListingItem from '../components/listings/ListingItem'
 
 function Category() {
 	const [listings, setListings] = useState(null)
-	const [isLoadign, setIsLoading] = useState(true)
+	const [isLoading, setIsLoading] = useState(true)
 
 	const params = useParams()
 
@@ -66,14 +67,18 @@ function Category() {
 				</p>
 			</header>
 
-			{isLoadign ? (
+			{isLoading ? (
 				<Spinner />
 			) : listings && listings.length > 0 ? (
 				<>
 					<main>
 						<ul className='categoryListings'>
 							{listings.map(listing => (
-								<h3 key={listing.id}>{listing.data.name}</h3>
+								<ListingItem
+									id={listing.id}
+									key={listing.id}
+									listing={listing.data}
+								/>
 							))}
 						</ul>
 					</main>
