@@ -117,8 +117,7 @@ function CreateListing() {
 		let location
 
 		if (geolocationEnabled) {
-			const response = await fetch(`${URL}/json?address=${address}&key=${KEY}
-`)
+			const response = await fetch(`${URL}/json?address=${address}&key=${KEY}`)
 
 			const data = await response.json()
 			//console.log(data)
